@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const mongo = require('mongoose');
 const logger = require('morgan');
@@ -10,7 +11,7 @@ const users_routes = require('./api/routes/users');
 const quests_routes = require('./api/routes/quests');
 
 // MongoDB Connection
-mongo.connect('mongodb+srv://admin:n0x@db1-agnnf.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+mongo.connect('mongodb+srv://admin:'+process.env.MONGO_PW+'@db1-agnnf.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 mongo.Promise = global.Promise;
 
 // Logger
